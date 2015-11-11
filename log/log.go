@@ -20,24 +20,26 @@ const (
 // Debug logs debug level messages
 func Debug(v interface{}) {
 	checkEnv()
-	log.Println(v)
+	if showDebug {
+		log.Println(v)
+	}
 }
 
 // Debugf logs using a Printf method
 func Debugf(format string, v interface{}) {
 	checkEnv()
-	log.Printf(format, v)
+	if showDebug {
+		log.Printf(format, v)
+	}
 }
 
 // Info is the standard level for logs you want all the time
 func Info(v interface{}) {
-	checkEnv()
 	log.Println(v)
 }
 
 // Infof is the standard logger, but using the Printf method
 func Infof(format string, v interface{}) {
-	checkEnv()
 	log.Printf(format, v)
 }
 
