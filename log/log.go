@@ -19,7 +19,6 @@ const (
 
 // Debug logs debug level messages
 func Debug(v interface{}) {
-	checkEnv()
 	if showDebug {
 		log.Println(v)
 	}
@@ -27,7 +26,6 @@ func Debug(v interface{}) {
 
 // Debugf logs using a Printf method
 func Debugf(format string, v interface{}) {
-	checkEnv()
 	if showDebug {
 		log.Printf(format, v)
 	}
@@ -43,7 +41,7 @@ func Infof(format string, v interface{}) {
 	log.Printf(format, v)
 }
 
-func checkEnv() {
+func init() {
 	if checkedEnv {
 		return
 	}
